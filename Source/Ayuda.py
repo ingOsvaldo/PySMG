@@ -13,6 +13,7 @@ import os
 
 class Ayuda:
     def __init__(self):
+	print os.getcwd()
         window = gtk.Window(gtk.WINDOW_TOPLEVEL)
         window.connect("delete_event", self.delete)
         window.set_border_width(10)
@@ -42,8 +43,8 @@ class Ayuda:
         notebook.append_page(frame,label)
         
         pygms = gtk.Image()
-        pygms.set_from_file("../Images/graph.png")
-        print os.getcwd()
+	pygms_path = os.getcwd()+"/Images/graph.png"
+        pygms.set_from_file(pygms_path)
         pygms.show()
         vbox.add(pygms)
         
@@ -82,12 +83,14 @@ class Ayuda:
         vboxB.add(h)
         
         unam = gtk.Image()
-        unam.set_from_file('../Images/unam.gif')
+	unam_path = os.getcwd()+"/Images/unam.gif"
+        unam.set_from_file(unam_path)
         unam.show()
         h.add(unam)
         
         geofisica = gtk.Image()
-        geofisica.set_from_file('../Images/logo_geofisica1.png')
+	geofisica_path = os.getcwd()+"/Images/logo_geofisica1.png"
+        geofisica.set_from_file(geofisica_path)
         geofisica.show()
         h.add(geofisica)
         
