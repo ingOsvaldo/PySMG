@@ -13,7 +13,6 @@ import os
 
 class Ayuda:
     def __init__(self):
-	print os.getcwd()
         window = gtk.Window(gtk.WINDOW_TOPLEVEL)
         window.connect("delete_event", self.delete)
         window.set_border_width(10)
