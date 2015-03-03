@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=PySMG
+Comment=Programa para analizar y graficar datos de detectores de partículas solares
+Exec=/home/USUARIO/Pysmg-2.0/Source/Pygms
+Icon=/home/USUARIO/Pysmg-2.0/Images/graph.xpm
+Terminal=false
+Type=Application
+Categories=GNOME;Application;Development;
+StartupNotify=true
