@@ -1,0 +1,129 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module Plot</title>
+<meta charset="utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>Plot</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/osvaldo/Documentos/PySMG/Source/Plot.py">/home/osvaldo/Documentos/PySMG/Source/Plot.py</a></font></td></tr></table>
+    <p><tt>Created&nbsp;on&nbsp;29/08/2013<br>
+&nbsp;<br>
+@author:&nbsp;Osvaldo&nbsp;Cesar&nbsp;Trujillo&nbsp;Torres<br>
+@copyright:&nbsp;2014,&nbsp;Osvaldo&nbsp;Cesar&nbsp;Trujillo&nbsp;Torres<br>
+@contact:&nbsp;&lt;osvaldo.trujillo.ingenieria@gmail.com&gt;<br>
+@license:&nbsp;GNU/GPL&nbsp;v3<br>
+@version:&nbsp;2.0</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="datetime.html">datetime</a><br>
+<a href="gtk.html">gtk</a><br>
+</td><td width="25%" valign=top><a href="matplotlib.dates.html">matplotlib.dates</a><br>
+<a href="multiprocessing.html">multiprocessing</a><br>
+</td><td width="25%" valign=top><a href="os.html">os</a><br>
+<a href="matplotlib.pyplot.html">matplotlib.pyplot</a><br>
+</td><td width="25%" valign=top><a href="pygtk.html">pygtk</a><br>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="Plot.html#Plot">Plot</a>
+</font></dt></dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Plot">class <strong>Plot</strong></a></font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Clase&nbsp;que&nbsp;se&nbsp;encarga&nbsp;de&nbsp;todas&nbsp;las&nbsp;funciones&nbsp;de&nbsp;graficar&nbsp;de&nbsp;PySMG<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Plot-Call_GraficaFechas"><strong>Call_GraficaFechas</strong></a>(self, FechaDe, FechaHasta, resolucion, tipo_archivo, canales)</dt><dd><tt>Función&nbsp;que&nbsp;realiza&nbsp;la&nbsp;llamada&nbsp;a&nbsp;las&nbsp;funciones&nbsp;que&nbsp;grafican&nbsp;rangos&nbsp;de&nbsp;fechas.<br>
+&nbsp;<br>
+Dependiendo&nbsp;del&nbsp;tipo&nbsp;de&nbsp;dato&nbsp;que&nbsp;el&nbsp;usuario&nbsp;quiera&nbsp;graficar,<br>
+esta&nbsp;función&nbsp;inicializa&nbsp;el&nbsp;nuevo&nbsp;proceso&nbsp;y&nbsp;ejecuta&nbsp;la&nbsp;función&nbsp;que&nbsp;realiza<br>
+la&nbsp;gráfica&nbsp;correspondiente.<br>
+&nbsp;<br>
+@param&nbsp;FechaDe:&nbsp;tipo&nbsp;cadena.&nbsp;contiene&nbsp;la&nbsp;fecha&nbsp;de&nbsp;inicio.<br>
+@param&nbsp;FechaHasta:&nbsp;tipo&nbsp;cadena.&nbsp;contiene&nbsp;la&nbsp;fecha&nbsp;de&nbsp;fin.<br>
+@param&nbsp;resolucion:&nbsp;tipo&nbsp;entero.&nbsp;contiene&nbsp;la&nbsp;resolución&nbsp;de&nbsp;la&nbsp;gráfica.<br>
+@param&nbsp;tipo_archivo:&nbsp;tipo&nbsp;cadena.&nbsp;contiene&nbsp;el&nbsp;tipo&nbsp;de&nbsp;archivo&nbsp;a&nbsp;graficar.<br>
+@param&nbsp;canales:&nbsp;tipo&nbsp;diccionario.&nbsp;contiene&nbsp;el&nbsp;diccionario&nbsp;de&nbsp;los&nbsp;canales&nbsp;a&nbsp;graficar.</tt></dd></dl>
+
+<dl><dt><a name="Plot-Call_GraficaTodas"><strong>Call_GraficaTodas</strong></a>(self, resolucion, tipo_archivo, canales)</dt><dd><tt>Función&nbsp;que&nbsp;realiza&nbsp;la&nbsp;llamada&nbsp;a&nbsp;las&nbsp;funciones&nbsp;que&nbsp;grafican&nbsp;todas&nbsp;las&nbsp;fechas.<br>
+&nbsp;<br>
+Dependiendo&nbsp;del&nbsp;tipo&nbsp;de&nbsp;dato&nbsp;que&nbsp;el&nbsp;usuario&nbsp;quiera&nbsp;graficar,<br>
+esta&nbsp;función&nbsp;inicializa&nbsp;el&nbsp;nuevo&nbsp;proceso&nbsp;y&nbsp;ejecuta&nbsp;la&nbsp;función&nbsp;que&nbsp;realiza<br>
+la&nbsp;gráfica&nbsp;correspondiente.<br>
+&nbsp;<br>
+@param&nbsp;resolucion:&nbsp;tipo&nbsp;entero.&nbsp;contiene&nbsp;la&nbsp;resolución&nbsp;de&nbsp;la&nbsp;gráfica.<br>
+@param&nbsp;tipo_archivo:&nbsp;tipo&nbsp;cadena.&nbsp;contiene&nbsp;el&nbsp;tipo&nbsp;de&nbsp;archivo&nbsp;a&nbsp;graficar.<br>
+@param&nbsp;canales:&nbsp;tipo&nbsp;diccionario.&nbsp;contiene&nbsp;el&nbsp;diccionario&nbsp;de&nbsp;los&nbsp;canales&nbsp;a&nbsp;graficar.</tt></dd></dl>
+
+<dl><dt><a name="Plot-GraficaFechas"><strong>GraficaFechas</strong></a>(self, *args)</dt><dd><tt>Función&nbsp;que&nbsp;grafica&nbsp;todas&nbsp;un&nbsp;rango&nbsp;fechas&nbsp;de&nbsp;archivos&nbsp;txt.<br>
+&nbsp;<br>
+Esta&nbsp;función&nbsp;grafica&nbsp;un&nbsp;rango&nbsp;de&nbsp;fechas&nbsp;de&nbsp;archivos&nbsp;de&nbsp;datos<br>
+del&nbsp;Monitor&nbsp;de&nbsp;Neutrones&nbsp;de&nbsp;la&nbsp;Ciudad&nbsp;de&nbsp;México.<br>
+&nbsp;<br>
+@param&nbsp;ruta:&nbsp;recibe&nbsp;la&nbsp;ruta&nbsp;del&nbsp;archivo&nbsp;de&nbsp;datos.<br>
+@param&nbsp;fechade:&nbsp;recibe&nbsp;la&nbsp;cadena&nbsp;de&nbsp;la&nbsp;fecha&nbsp;de&nbsp;inicio.<br>
+@param&nbsp;fechahasta:&nbsp;recibe&nbsp;la&nbsp;cadena&nbsp;de&nbsp;la&nbsp;fecha&nbsp;de&nbsp;fin.<br>
+@param&nbsp;resolucion:&nbsp;recibe&nbsp;la&nbsp;resolución&nbsp;de&nbsp;la&nbsp;gráfica.</tt></dd></dl>
+
+<dl><dt><a name="Plot-GraficaFechasSN"><strong>GraficaFechasSN</strong></a>(self, *args)</dt><dd><tt>Función&nbsp;que&nbsp;grafica&nbsp;todas&nbsp;un&nbsp;rango&nbsp;fechas&nbsp;de&nbsp;archivos&nbsp;sn.<br>
+&nbsp;<br>
+Esta&nbsp;función&nbsp;grafica&nbsp;un&nbsp;rango&nbsp;de&nbsp;fechas&nbsp;de&nbsp;archivos&nbsp;de&nbsp;datos<br>
+del&nbsp;Telescopio&nbsp;de&nbsp;Neutrones&nbsp;Solares.<br>
+&nbsp;<br>
+@param&nbsp;ruta:&nbsp;recibe&nbsp;la&nbsp;ruta&nbsp;del&nbsp;archivo&nbsp;de&nbsp;datos.<br>
+@param&nbsp;fechade:&nbsp;recibe&nbsp;la&nbsp;cadena&nbsp;de&nbsp;la&nbsp;fecha&nbsp;de&nbsp;inicio.<br>
+@param&nbsp;fechahasta:&nbsp;recibe&nbsp;la&nbsp;cadena&nbsp;de&nbsp;la&nbsp;fecha&nbsp;de&nbsp;fin.<br>
+@param&nbsp;resolucion:&nbsp;recibe&nbsp;la&nbsp;resolución&nbsp;de&nbsp;la&nbsp;gráfica.<br>
+@param&nbsp;canales:&nbsp;recibe&nbsp;el&nbsp;diccionario&nbsp;que&nbsp;contiene&nbsp;los&nbsp;canales&nbsp;a&nbsp;graficar.</tt></dd></dl>
+
+<dl><dt><a name="Plot-GraficaTodas"><strong>GraficaTodas</strong></a>(self, *args)</dt><dd><tt>Función&nbsp;que&nbsp;grafica&nbsp;todas&nbsp;las&nbsp;fechas&nbsp;de&nbsp;archivos&nbsp;txt.<br>
+&nbsp;<br>
+Esta&nbsp;función&nbsp;grafica&nbsp;todas&nbsp;las&nbsp;fechas&nbsp;de&nbsp;archivos&nbsp;de&nbsp;datos<br>
+del&nbsp;Monitor&nbsp;de&nbsp;Neutrones&nbsp;de&nbsp;la&nbsp;Ciudad&nbsp;de&nbsp;México.<br>
+&nbsp;<br>
+@param&nbsp;ruta:&nbsp;recibe&nbsp;la&nbsp;ruta&nbsp;del&nbsp;archivo&nbsp;de&nbsp;datos.<br>
+@param&nbsp;resolucion:&nbsp;recibe&nbsp;la&nbsp;resolución&nbsp;de&nbsp;la&nbsp;gráfica.</tt></dd></dl>
+
+<dl><dt><a name="Plot-GraficaTodasSN"><strong>GraficaTodasSN</strong></a>(self, *args)</dt><dd><tt>Función&nbsp;que&nbsp;grafica&nbsp;todas&nbsp;las&nbsp;fechas&nbsp;de&nbsp;archivos&nbsp;sn.<br>
+&nbsp;<br>
+Esta&nbsp;función&nbsp;grafica&nbsp;todas&nbsp;las&nbsp;fechas&nbsp;de&nbsp;archivos&nbsp;de&nbsp;datos<br>
+del&nbsp;Telescopio&nbsp;de&nbsp;Neutrones&nbsp;Solares.<br>
+&nbsp;<br>
+@param&nbsp;ruta:&nbsp;recibe&nbsp;la&nbsp;ruta&nbsp;del&nbsp;archivo&nbsp;de&nbsp;datos.<br>
+@param&nbsp;resolucion:&nbsp;recibe&nbsp;la&nbsp;resolución&nbsp;de&nbsp;la&nbsp;gráfica.<br>
+@param&nbsp;canales:&nbsp;recibe&nbsp;el&nbsp;diccionario&nbsp;que&nbsp;contiene&nbsp;los&nbsp;canales&nbsp;a&nbsp;graficar.</tt></dd></dl>
+
+<dl><dt><a name="Plot-__init__"><strong>__init__</strong></a>(self, ruta)</dt><dd><tt>Constructor&nbsp;de&nbsp;la&nbsp;clase&nbsp;<a href="#Plot">Plot</a>.<br>
+&nbsp;<br>
+Arma&nbsp;las&nbsp;constantes&nbsp;a&nbsp;utilizar&nbsp;en&nbsp;algunas&nbsp;gráficas.<br>
+&nbsp;<br>
+@param&nbsp;ruta:&nbsp;recibe&nbsp;la&nbsp;ruta&nbsp;del&nbsp;archivo&nbsp;de&nbsp;datos&nbsp;a&nbsp;gráficar.</tt></dd></dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>__copyright__</strong> = '2014, Osvaldo Cesar Trujillo Torres &lt;osvaldo.trujillo.ingenieria@gmail.com&gt;'<br>
+<strong>__license__</strong> = 'GPL v3'</td></tr></table>
+</body></html>
