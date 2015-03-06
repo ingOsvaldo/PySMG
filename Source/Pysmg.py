@@ -4,6 +4,10 @@
 Created on 29/08/2013
 
 @author: Osvaldo Cesar Trujillo Torres
+@copyright: 2014, Osvaldo Cesar Trujillo Torres
+@contact: <osvaldo.trujillo.ingenieria@gmail.com>
+@license: GNU/GPL v3
+@version: 2.0
 '''
 
 __license__   = 'GPL v3'
@@ -21,12 +25,12 @@ from Datos import main_datos
 
 class Pysmg():
     '''
-    Clase principal
+    Clase principal que lanza la GUI.
     '''
 
     def __init__(self):
         '''
-        Constructor de la interfaz gráfica
+        Constructor de la interfaz gráfica.
         '''
         self.panel_visible = 1
         self.tipo_archivo = ""
@@ -333,40 +337,79 @@ class Pysmg():
         
 #FUNCIONES VARIAS        
     def main(self):
+        '''
+        Función que ejecuta el proceso principal de pyGTK.
+        '''
         gtk.main()        
         
     def destruir(self, widget, data = "None"):
         '''
-        Función para cerrar la aplicación
+        Función que cierra el proceso principal de pyGTK.
+        
+        @param widget: recibe la ventana del proceso a destruir.
         '''
         gtk.main_quit()
         
         
     def getPanelVisible(self):
+        '''
+        Función para obtener el valor del panel estadística.
+        
+        @param param: no recibe parámetros.
+        '''
         return self.panel_visible
     
     def setPanelVisible(self,valor):
+        '''
+        Función para establecer el valor del panel estadística.
+        
+        @param valor: el valor a establecer de tipo entero.
+        '''
         self.panel_visible = valor
         
     def getTipoArchivo(self):
+        '''
+        Función que obtiene el valor del tipo de archivo a graficar.
+        '''
         return self.tipo_archivo
     
     def setTipoArchivo(self,valor):
+        '''
+        Función que establece el valor del tipo de archivo a graficar.
+        
+        @param valor: de tipo cadena "txt" o "sn"
+        '''
         self.tipo_archivo = valor
         
     def setCanales(self,widget,clave):
+        '''
+        Función que establece el valor de los canales a graficar.
+        
+        @param clave: recibe el nombre del canal a establecer el valor. es de tipo entero.
+        '''
         if widget.get_active():
             self.canales[clave] = 1
         else:
             self.canales[clave] = 0
         
     def getCanales(self):
+        '''
+        Función que regresa el valor de los canales a graficar.
+        '''
         return self.canales
     
     def deleteCanales(self, widget, evento, window1):
+        '''
+        Función que cierra el proceso de la ventana de Preferencias.
+        
+        @param window1: recibe la ventana que va a cerrar.
+        '''
         window1.destroy()
     
     def modificarCanales(self,w):
+        '''
+        Función que lanza la ventana para modificar los canales.
+        '''
         window1 = gtk.Window(gtk.WINDOW_TOPLEVEL)
         window1.connect("delete_event", self.deleteCanales, window1)
         window1.set_border_width(10)
@@ -488,6 +531,9 @@ class Pysmg():
         window1.show_all()
         
     def ocultarCanales(self, widget):
+        '''
+        Función que activa todos los canales para su graficación.
+        '''
         self.s1_anti.set_sensitive(False)
         self.s2_anti.set_sensitive(False)
         self.s3_anti.set_sensitive(False)
@@ -515,6 +561,9 @@ class Pysmg():
         
         
     def verCanales(self, widget):
+        '''
+        Función que activa los check de los canales para elegirlos.
+        '''
         self.s1_anti.set_sensitive(True)
         self.s2_anti.set_sensitive(True)
         self.s3_anti.set_sensitive(True)
@@ -527,7 +576,11 @@ class Pysmg():
         
     def changed(self, combobox):
         '''
-        Función que verifica si la resolución es de 1 minuto
+        Función que verifica si la resolución es de 1 minuto.
+        
+        La función evalua cada cambio que tiene el combobox de la resolución
+        si el cambio coincide con la resolución mínima, esta función lanza un aviso
+        para considerar que se haya elegido el archivo correcto.
         '''
         index = combobox.get_active_text()
         if index == "Minima (1 minuto)":
@@ -541,8 +594,9 @@ class Pysmg():
         
     def abrir(self, widget, entry):
         '''
-        Fución que muestra el dialogo para seleccionar un archivo de datos,
-        establece la ruta del archivo.
+        Fución que muestra el dialogo para seleccionar un archivo de datos.
+        
+        Establece la ruta del archivo.
         '''
         dialogo = gtk.FileChooserDialog("Archivo de datos", 
                                         None, 
@@ -577,6 +631,19 @@ class Pysmg():
         
     
     def exportar(self, w, entry, combofechade, combofechahasta, combohorade, combohorahasta):
+        '''
+        Función que exporta los datos usados para graficar.
+        
+        La función abre un explorador de archivos para elegir el nombre y la ruta
+        para exportar los datos que ya hemos usado.
+        
+        @param entry: es la ruta del archivo de datos.
+        @param combofechade: recibe el combo para obtener la fecha de inicio.
+        @param combofechahasta: recibe el combo para obtener la fecha final.
+        @param combohorade: recibe el combo para obtener la hora de inicio.
+        @param combohorahasta: recibe el combo para obtener la hora final.
+        
+        '''
         ruta = entry.get_text()
         
         
@@ -644,6 +711,12 @@ class Pysmg():
     def cargarDatos(self, widget, frame_fechas, frame_resolucion, entry, btn_graficar, 
                     combofechade, combofechahasta, combohorade, combohorahasta, radiotodas, menu, frame_estadistica,
                     combodef1, combodeh1, combohastaf1, combohastah1, combodef2, combodeh2, combohastaf2, combohastah2):
+        '''
+        Función que carga los datos del archivo elegido por el usuario.
+        
+        Arma todos los combos, con las fechas y las horas disponibles en el archivo.
+        Activa los paneles y menús disponibles para cada tipo de archivo. 
+        '''
         ruta = entry.get_text()
         
         try:
@@ -714,7 +787,11 @@ class Pysmg():
                 
                 
     def validar(self, ruta):
+        '''
+        Función que valida el tipo de archivo elegido por el usuario.
         
+        @param ruta: recibe la ruta del archivo que eligió el usuario.
+        '''
         
         if ruta.find(".sn") != -1:
             self.setTipoArchivo("sn")
@@ -747,12 +824,22 @@ class Pysmg():
             
     
     def ocultar(self, w, combofechade, combohorade, combofechahasta, combohorahasta):
+        '''
+        Función que oculta los combos de fechas.
+        
+        Si la opción "Graficar todas las fechas" está activa, esta función oculta los combos.
+        '''
         combofechade.set_sensitive(False)
         combofechahasta.set_sensitive(False)
         combohorade.set_sensitive(False)
         combohorahasta.set_sensitive(False)
     
     def ver(self, w, combofechade, combohorade, combofechahasta, combohorahasta):
+        '''
+        Función que visualiza los combos de fechas.
+        
+        Si la opción "Seleccionar fechas" está activa, esta función visualiza los combos.
+        '''
         combofechade.set_sensitive(True)
         combofechahasta.set_sensitive(True)
         combohorade.set_sensitive(True)
@@ -760,6 +847,12 @@ class Pysmg():
         
     def graficar(self, w, entry, combofechade, combofechahasta, combohorade, combohorahasta, barra, 
                  radiot, radios, res):
+        '''
+        Función que realiza la llamada a la clase Plot.
+        
+        Esta función hace la llamada a la función que ejecuta el nuevo proceso y realiza la gráfica
+        dependiendo el tipo de archivo que selecciono el usuario.
+        '''
         
         ruta  =  entry.get_text()
         resolucion = res.get_active_text()
@@ -831,6 +924,6 @@ class Pysmg():
             
 if __name__ == "__main__":
     g = Pysmg()
-    #print "Proceso principal lanzado ", "PID: ", os.getppid() 
+    
     g.main()
-    #print "Proceso principal detenido ", "PID: ", os.getppid()
+    

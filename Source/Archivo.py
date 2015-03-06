@@ -1,7 +1,13 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 '''
-Created on 01/09/2013
+Created on 29/08/2013
 
 @author: Osvaldo Cesar Trujillo Torres
+@copyright: 2014, Osvaldo Cesar Trujillo Torres
+@contact: <osvaldo.trujillo.ingenieria@gmail.com>
+@license: GNU/GPL v3
+@version: 2.0
 '''
 
 __license__   = 'GPL v3'
@@ -9,6 +15,14 @@ __copyright__ = '2014, Osvaldo Cesar Trujillo Torres <osvaldo.trujillo.ingenieri
 
 
 def leer(ruta):
+    '''
+    Función que lee el archivo de datos del Monitor de Neutrones de la Ciudad de México.
+    
+    Esta función recibe como parámetro la ruta del archivo de datos elegido por el usuario
+    y devuelve el contenido de dicho archivo.
+    
+    @param ruta: recibe la ruta del archivo de datos.
+    '''
     archivo = open(ruta, "r")
     lineas = archivo.readlines()
     archivo.close()
@@ -28,6 +42,14 @@ def leer(ruta):
 
 
 def leer_SN(files):
+    '''
+    Función que lee el archivo de datos del Telescopio de Neutrones solares.
+    
+    Esta función recibe como parámetro la ruta del archivo de datos elegido por el usuario
+    y devuelve el contenido de dicho archivo.
+    
+    @param files: recibe la ruta del archivo de datos.
+    '''
     files = [files]
     datos = []
     
@@ -42,6 +64,12 @@ def leer_SN(files):
 
 
 def setFecha(ruta, tipo_archivo):
+    '''
+    Función que establece el arreglo de fechas de un archivo de datos.
+    
+    @param ruta: recibe la ruta del archivo de datos.
+    @param tipo_archivo: recibe el tipo de archivo de datos.
+    '''
     fechas = ["Seleccione una fecha"]
     
     if tipo_archivo == "sn":
@@ -75,6 +103,13 @@ def setFecha(ruta, tipo_archivo):
 
 
 def setHora(ruta, tipo_archivo):
+    '''
+    Función que establece el arreglo de horas de un archivo de datos.
+    
+    @param ruta: recibe la ruta del archivo de datos.
+    @param tipo_archivo: recibe el tipo de archivo de datos.
+    '''
+    
     horas = ['Seleccione una hora']
     indice = 0
     
@@ -117,6 +152,11 @@ def setHora(ruta, tipo_archivo):
 
 
 def ceros(lista):
+    '''
+    Función que identifia los ceros (0) que contiene un archivo.
+    
+    Actualmente no se usa.
+    '''
     contador = 0
     
     for n in lista:

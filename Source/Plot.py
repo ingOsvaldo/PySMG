@@ -1,9 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 '''
-Created on 06/09/2013
+Created on 29/08/2013
 
 @author: Osvaldo Cesar Trujillo Torres
+@copyright: 2014, Osvaldo Cesar Trujillo Torres
+@contact: <osvaldo.trujillo.ingenieria@gmail.com>
+@license: GNU/GPL v3
+@version: 2.0
 '''
 
 __license__   = 'GPL v3'
@@ -23,15 +27,35 @@ from Archivo import *
 
 
 class Plot():
+    '''
+    Clase que se encarga de todas las funciones de graficar de PySMG
+    '''
     def __init__(self, ruta):
+        '''
+        Constructor de la clase Plot.
+        
+        Arma las constantes a utilizar en algunas gráficas.
+        
+        @param ruta: recibe la ruta del archivo de datos a gráficar.
+        '''
         self.ruta = ruta
         self.UNAM = u"Universidad Nacional Autónoma de México \n Instituto de Geofísica\n"
         self.MONITOR = u"Monitor de Neutrones de la Ciudad de México"
         self.EJEX = "Tiempo Local"
-        self.PySMG = "PySMG"
-        #self.resolucion = resolucion 
+        self.PySMG = "PySMG" 
           
     def Call_GraficaTodas(self, resolucion, tipo_archivo, canales):
+        '''
+        Función que realiza la llamada a las funciones que grafican todas las fechas.
+        
+        Dependiendo del tipo de dato que el usuario quiera graficar,
+        esta función inicializa el nuevo proceso y ejecuta la función que realiza
+        la gráfica correspondiente.
+        
+        @param resolucion: tipo entero. contiene la resolución de la gráfica.
+        @param tipo_archivo: tipo cadena. contiene el tipo de archivo a graficar.
+        @param canales: tipo diccionario. contiene el diccionario de los canales a graficar.
+        '''
         if tipo_archivo == "txt":
             p = Process(target=self.GraficaTodas, args=(self.ruta, resolucion))
             p.start()
@@ -40,6 +64,19 @@ class Plot():
             p.start()        
         
     def Call_GraficaFechas(self,FechaDe, FechaHasta, resolucion, tipo_archivo, canales):
+        '''
+        Función que realiza la llamada a las funciones que grafican rangos de fechas.
+        
+        Dependiendo del tipo de dato que el usuario quiera graficar,
+        esta función inicializa el nuevo proceso y ejecuta la función que realiza
+        la gráfica correspondiente.
+        
+        @param FechaDe: tipo cadena. contiene la fecha de inicio.
+        @param FechaHasta: tipo cadena. contiene la fecha de fin.
+        @param resolucion: tipo entero. contiene la resolución de la gráfica.
+        @param tipo_archivo: tipo cadena. contiene el tipo de archivo a graficar.
+        @param canales: tipo diccionario. contiene el diccionario de los canales a graficar.
+        '''
         if tipo_archivo == "txt":
             p = Process(target=self.GraficaFechas, args=(self.ruta, FechaDe, FechaHasta, resolucion))
             p.start()
@@ -47,7 +84,16 @@ class Plot():
             p = Process(target=self.GraficaFechasSN, args=(self.ruta, FechaDe, FechaHasta, resolucion, canales))
             p.start()
             
-    def GraficaTodas(self, *args):        
+    def GraficaTodas(self, *args):     
+        '''
+        Función que grafica todas las fechas de archivos txt.
+        
+        Esta función grafica todas las fechas de archivos de datos
+        del Monitor de Neutrones de la Ciudad de México.
+        
+        @param ruta: recibe la ruta del archivo de datos.
+        @param resolucion: recibe la resolución de la gráfica.
+        '''   
         path = args[0]
         resolucion = args[1]
         
@@ -110,6 +156,17 @@ class Plot():
         plt.show()    
         
     def GraficaFechas(self,*args):
+        '''
+        Función que grafica todas un rango fechas de archivos txt.
+        
+        Esta función grafica un rango de fechas de archivos de datos
+        del Monitor de Neutrones de la Ciudad de México.
+        
+        @param ruta: recibe la ruta del archivo de datos.
+        @param fechade: recibe la cadena de la fecha de inicio.
+        @param fechahasta: recibe la cadena de la fecha de fin.
+        @param resolucion: recibe la resolución de la gráfica. 
+        '''   
         
         path = args[0]
         fechade = args[1]
@@ -197,6 +254,16 @@ class Plot():
         plt.show()
         
     def GraficaTodasSN(self, *args):
+        '''
+        Función que grafica todas las fechas de archivos sn.
+        
+        Esta función grafica todas las fechas de archivos de datos
+        del Telescopio de Neutrones Solares.
+        
+        @param ruta: recibe la ruta del archivo de datos.
+        @param resolucion: recibe la resolución de la gráfica.
+        @param canales: recibe el diccionario que contiene los canales a graficar.
+        '''   
         path = args[0]
         resolucion = args[1]
         canales = args[2]
@@ -379,6 +446,18 @@ class Plot():
         
         
     def GraficaFechasSN(self, *args):
+        '''
+        Función que grafica todas un rango fechas de archivos sn.
+        
+        Esta función grafica un rango de fechas de archivos de datos
+        del Telescopio de Neutrones Solares.
+        
+        @param ruta: recibe la ruta del archivo de datos.
+        @param fechade: recibe la cadena de la fecha de inicio.
+        @param fechahasta: recibe la cadena de la fecha de fin.
+        @param resolucion: recibe la resolución de la gráfica.
+        @param canales: recibe el diccionario que contiene los canales a graficar.
+        '''   
     
         path = args[0]
         fechade = args[1][0:6] + " " + args[1][7:9] + args[1][10:12]

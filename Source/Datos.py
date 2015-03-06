@@ -1,7 +1,13 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 '''
-Created on 08/10/2013
+Created on 29/08/2013
 
 @author: Osvaldo Cesar Trujillo Torres
+@copyright: 2014, Osvaldo Cesar Trujillo Torres
+@contact: <osvaldo.trujillo.ingenieria@gmail.com>
+@license: GNU/GPL v3
+@version: 2.0
 '''
 
 __license__   = 'GPL v3'

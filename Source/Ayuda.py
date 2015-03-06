@@ -1,5 +1,16 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+
+'''
+Created on 29/08/2013
+
+@author: Osvaldo Cesar Trujillo Torres
+@copyright: 2014, Osvaldo Cesar Trujillo Torres
+@contact: <osvaldo.trujillo.ingenieria@gmail.com>
+@license: GNU/GPL v3
+@version: 2.0
+'''
+
 __license__   = 'GPL v3'
 __copyright__ = '2014, Osvaldo Cesar Trujillo Torres <osvaldo.trujillo.ingenieria@gmail.com>'
 
@@ -11,8 +22,14 @@ import webbrowser
 import textwrap
 import os
 
-class Ayuda:
+class Ayuda():
+    '''
+    Clase principal de la ventana Ayuda.
+    '''
     def __init__(self):
+        '''
+        Constructor de la clase Ayuda.
+        '''
         window = gtk.Window(gtk.WINDOW_TOPLEVEL)
         window.connect("delete_event", self.delete)
         window.set_border_width(10)
@@ -42,8 +59,8 @@ class Ayuda:
         notebook.append_page(frame,label)
         
         pygms = gtk.Image()
-	pygms_path = os.getcwd()+"/Images/graph.png"
-        pygms.set_from_file(pygms_path)
+        pygms.set_from_file("../Images/graph.png")
+        print os.getcwd()
         pygms.show()
         vbox.add(pygms)
         
@@ -82,14 +99,12 @@ class Ayuda:
         vboxB.add(h)
         
         unam = gtk.Image()
-	unam_path = os.getcwd()+"/Images/unam.gif"
-        unam.set_from_file(unam_path)
+        unam.set_from_file('../Images/unam.gif')
         unam.show()
         h.add(unam)
         
         geofisica = gtk.Image()
-	geofisica_path = os.getcwd()+"/Images/logo_geofisica1.png"
-        geofisica.set_from_file(geofisica_path)
+        geofisica.set_from_file('../Images/logo_geofisica1.png')
         geofisica.show()
         h.add(geofisica)
         
@@ -148,13 +163,22 @@ www.gnu.org/licenses/>.'''
         window.show_all()
 
     def delete(self, widget, event=None):
+        '''
+        Función que cierra la ventana de Ayuda.
+        '''
         gtk.main_quit()
         return False
     
     def navegador(self, widget):
+        '''
+        Función que abre un navegador web.
+        '''
         webbrowser.open("http://www.geofisica.unam.mx/observatorios/rayos_cosmicos/grupo_raycos/index.html")
 
 def main(w):
+    '''
+    Función que ejecuta la ventana de Ayuda.
+    '''
     Ayuda()
     gtk.main()
     return 0
